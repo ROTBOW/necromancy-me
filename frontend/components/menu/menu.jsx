@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Splash from "../splash/splash";
+import Graves from "../graves/graves";
 import './menu.scss';
 
 const tabs = {
-    splash: Splash
+    splash: Splash,
+    graves: Graves
 };
 
 
