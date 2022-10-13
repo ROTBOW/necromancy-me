@@ -72,3 +72,9 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+
+#main-container {
+  display: flex;
+  justify-content: center;
+}

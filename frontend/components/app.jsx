@@ -1,7 +1,6 @@
-import React from 'react';
 import { Route, Routes, Redirect, Navigate } from 'react-router-dom';
-
-import Splash from './splash/splash';
+import Menu from './menu/menu';
+import React from 'react';
 
 {/* <Route path='start' element={<Start/>}/>
 <Route path='game' element={<Game/>}/>
@@ -11,11 +10,9 @@ class App extends React.Component {
 
     render(){
         return (
-                <div>      
+                <div id='main-container'>      
                     <Routes>
-                        <Route path='/' element={<Splash/>}/>
-
-
+                        <Route path='/' element={<Menu/>}/>
                         <Route path='*' element={ <Navigate to='/' replace/>}/>
                     </Routes>
                 </div>
