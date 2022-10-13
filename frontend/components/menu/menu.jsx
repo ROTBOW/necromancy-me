@@ -5,13 +5,13 @@ import Graves from "../graves/graves";
 import './menu.scss';
 
 const tabs = {
-    splash: Splash,
+    welcome: Splash,
     graves: Graves
 };
-
+let allTabs = Object.keys(tabs);
 
 const Menu = () => {
-    const [tab, setTab] = useState('splash');
+    const [tab, setTab] = useState('welcome');
     const changeTabTo = tab => e => {
         if (tab in tabs) {
             return setTab(tab)
@@ -23,8 +23,11 @@ const Menu = () => {
         <div id='menu'>
             <div className="tab-container">{tabs[tab]()}</div>
             <div className='tab-selector'>
-                <button onClick={changeTabTo('splash')} className={tab === 'splash' ? 'active' : ''}>welcome</button>
-                <button onClick={changeTabTo('graves')} className={tab === 'graves' ? 'active' : ''}>graves</button>
+                {
+                    allTabs.map((tabItem, idx) => (
+                        <button onClick={changeTabTo(tabItem)} className={tab === tabItem ? 'active' : ''} key={idx}>{tabItem}</button>
+                    ))
+                }
             </div>
         </div>
     )
