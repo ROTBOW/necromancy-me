@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 .tab-container {
     min-width: 1000px;
     min-height: 600px;
@@ -5,4 +7,7 @@
     border: solid 0.01rem lightgray;
     padding: 3rem;
 
+    box-shadow: $shadows;
+    -webkit-box-shadow: $shadows;
+    -moz-box-shadow: $shadows;
 }

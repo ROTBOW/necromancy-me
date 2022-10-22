@@ -13,9 +13,11 @@ const Splash = () => {
                 The world of the living shall fall.
                 <br/>
                 They will never forget your name again.
+                <br/><br/>
+                You should start at the graves.
             </p>
             <p className="splash-stats">
-                {(localStorage.getItem('skeletons') !== '0')}
+                You have {localStorage.getItem('skeletons')} <i>Skeletons</i>
             </p>
         </div>
     )
