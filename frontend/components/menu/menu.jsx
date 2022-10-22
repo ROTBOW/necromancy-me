@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Splash from "../splash/splash";
-import Graves from "../graves/graves";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import './menu.scss';
 
-const tabs = {
-    welcome: Splash,
-    graves: Graves
-};
-let allTabs = Object.keys(tabs);
+let allTabs = ['welcome', 'graves'];
 
 const Menu = () => {
-    const [tab, setTab] = useState('welcome');
+    const loca = useLocation();
+    const [tab, setTab] = useState(loca.pathname.slice(1));
+    const navi = useNavigate();
+
     const changeTabTo = tab => e => {
-        if (tab in tabs) {
-            return setTab(tab)
-        }
-        console.error(`TabError: Tab ( ${tab} ) is not a tab!`)
+        navi(`/${tab}`)
+        return setTab(tab)
     };
 
     return (
         <div id='menu'>
-            <div className="tab-container">{tabs[tab]()}</div>
             <div className='tab-selector'>
                 {
                     allTabs.map((tabItem, idx) => (
