@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { getUnlockAt } from "../../utils";
 
 import './menu.scss';
 
-let allTabs = ['welcome', 'graves'];
+let allTabs = ['welcome', 'graves', 'forest'];
+// unlocks graves, forest
 
 const Menu = () => {
     const loca = useLocation();
@@ -19,9 +21,11 @@ const Menu = () => {
         <div id='menu'>
             <div className='tab-selector'>
                 {
-                    allTabs.map((tabItem, idx) => (
-                        <button onClick={changeTabTo(tabItem)} className={tab === tabItem ? 'active' : ''} key={idx}>{tabItem}</button>
-                    ))
+                    allTabs.map((tabItem, idx) => {
+                        if (idx === 0 || getUnlockAt(idx-1) === '1') {
+                            return <button onClick={changeTabTo(tabItem)} className={tab === tabItem ? 'active' : ''} key={idx}>{tabItem}</button>
+                        }
+                    })
                 }
             </div>
         </div>

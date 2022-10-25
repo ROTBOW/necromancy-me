@@ -9,20 +9,10 @@ import Graves from './graves/graves';
 <Route path='game' element={<Game/>}/>
 <Route path='*' element={ <Navigate to='start' replace/>}/> */}
 
-const playerData = [
-    'skeletons'
-];
 
-// class App extends React.Component {
+
 const App = () => {
 
-    useEffect(() => {
-        playerData.map(data => {
-            if (localStorage.getItem(data) === null) {
-                localStorage.setItem(data, '0')
-            }
-        })
-    }, []);
 
     return (
             <div id='main-container'>      

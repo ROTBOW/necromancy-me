@@ -36,7 +36,7 @@ const Graves = () => {
             <p>This is the graveyard, the only thing you can raise here are <i>Skeletons</i>. Dumb, but they have their uses.</p>
             <p>You have {skeletons} <i>Skeletons</i></p>
 
-            <button onClick={raiseSkeleton} disabled={building}>Raise <i>Skeletons</i></button>
+            <button onClick={raiseSkeleton} disabled={building}>Raise <i>Skeleton</i></button>
             <ProgressBar now={buildSkel} label={`${buildSkel}%`}/>
         </div>
     )
