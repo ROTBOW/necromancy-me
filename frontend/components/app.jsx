@@ -1,9 +1,10 @@
 import { Route, Routes, Redirect, Navigate } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Menu from './menu/menu';
 import Splash from './splash/splash';
 import Graves from './graves/graves';
+import Forest from './forest/forest';
 
 {/* <Route path='start' element={<Start/>}/>
 <Route path='game' element={<Game/>}/>
@@ -12,18 +13,21 @@ import Graves from './graves/graves';
 
 
 const App = () => {
+    const [updateMenu, setUpdateMenu] = useState(true);
+    const pingMenu = () => { setUpdateMenu(val => !val); };
 
 
     return (
             <div id='main-container'>      
                 <Routes>
-                    <Route path='/welcome' element={<Splash/>}/>
-                    <Route path='/graves' element={<Graves/>}/>
+                    <Route path='/welcome' element={<Splash pingMenu={pingMenu}/>}/>
+                    <Route path='/graves' element={<Graves pingMenu={pingMenu}/>}/>
+                    <Route path='/forest' element={<Forest/>}/>
 
 
                     <Route path='*' element={ <Navigate to='/welcome' replace/>}/>
                 </Routes>
-                <Menu/>
+                <Menu update={updateMenu}/>
             </div>
     )
 }

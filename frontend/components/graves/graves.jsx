@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./graves.scss";
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { sleep } from "../../utils";
+import { getUnlockAt, setUnlockAt, sleep } from "../../utils";
 
 
 // let buildSkel = 0;
 
-const Graves = () => {
+const Graves = (props) => {
     const [skeletons, setSkeletons] = useState(Number(localStorage.getItem('skeletons')));
     const [buildSkel, setBuildSkel] = useState(0);
     const [building, setBuilding] = useState(false);
@@ -26,6 +26,11 @@ const Graves = () => {
             let newAmount = skeletons + 1;
             localStorage.setItem('skeletons', String(newAmount))
             setSkeletons(newAmount);
+            if (getUnlockAt(1) != '1' && newAmount > 9) {
+                // alert('you\'ve unlocked the forest')
+                setUnlockAt(1, '2')
+                props.pingMenu();
+            }
             setBuildSkel(0)
             setBuilding(false);
         })();

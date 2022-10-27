@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { replace } from "../../utils";
+import { getUnlockAt, setUnlockAt } from "../../utils";
 
 
-const Splash = () => {
+const Splash = (props) => {
 
-
-    const unlockGraves = () => {
-        let unlocks = localStorage.getItem('unlocks');
-        localStorage.setItem('unlocks', replace(unlocks, 0, '1'))
-    }
-
-    // console.log(hideButton);
+    useEffect(() => {
+        if (getUnlockAt(0) === '0') {
+            setUnlockAt(0, '2');
+            props.pingMenu();
+        }
+    }, []);
+    
     return (
         <div className="tab-container splash">
             <p>

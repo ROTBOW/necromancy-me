@@ -7,17 +7,21 @@ import React from 'react';
 const playerData = [
     'unlocks',
     'skeletons',
+    'skeletonRate',
     'wood',
 ];
+
+const startData = {
+    'unlocks': '00',
+    'skeletons': '0',
+    'skeletonRate': '1',
+    'wood': '0',
+}
 
 const readyPlayerData = () => {
     playerData.map(data => {
         if (localStorage.getItem(data) === null) {
-            if (data === 'unlocks') {
-                localStorage.setItem(data, '00')
-                return;
-            }
-            localStorage.setItem(data, '0')
+            localStorage.setItem(data, startData[data])
         }
     })
 };
