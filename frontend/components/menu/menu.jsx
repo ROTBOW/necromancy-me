@@ -14,9 +14,12 @@ const Menu = (props) => {
 
     useEffect((e)=>(e), [props.update])
 
+    useEffect(() => {
+        setTab(loca.pathname.slice(1))
+    }, [loca.pathname.slice(1)])
+
     const changeTabTo = tab => e => {
         navi(`/${tab}`)
-        return setTab(tab)
     };
 
     const unlockTab = (idx, tab) => e => {

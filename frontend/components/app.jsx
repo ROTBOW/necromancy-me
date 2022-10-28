@@ -1,4 +1,4 @@
-import { Route, Routes, Redirect, Navigate, useNavigate } from 'react-router-dom';
+import { Route, Routes, Redirect, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGears } from "@fortawesome/free-solid-svg-icons";
@@ -9,12 +9,24 @@ import Graves from './graves/graves';
 import Forest from './forest/forest';
 import Settings from './settings/settings';
 
+const SettingsButton = () => {
+    const navi = useNavigate();
+    const loca = useLocation();
+
+    const handleClick = () => {
+        (loca.pathname.slice(1) === 'settings') ? navi(-1) : navi('/settings');
+    }
+
+    return (
+        <div style={{width: 0, height: 0, position: 'relative'}}>
+            <FontAwesomeIcon icon={faGears} onClick={handleClick} className={`setting-gears ${(loca.pathname.slice(1) === 'settings') ? 'active' : ''}`}/>
+        </div>
+    )
+}
 
 const App = () => {
     const [updateMenu, setUpdateMenu] = useState(true);
     const pingMenu = () => { setUpdateMenu(val => !val); };
-    const navi = useNavigate();
-
 
     return (
             <div id='main-container'>      
@@ -26,7 +38,7 @@ const App = () => {
                     <Route path='/settings' element={<Settings/>}/>
                     <Route path='*' element={ <Navigate to='/welcome' replace/>}/>
                 </Routes>
-                <div style={{width: 0, height: 0, position: 'relative'}}><FontAwesomeIcon icon={faGears} onClick={()=>(navi('/settings'))} className="setting-gears"/></div>
+                <SettingsButton/>
                 <Menu update={updateMenu}/>
             </div>
     )

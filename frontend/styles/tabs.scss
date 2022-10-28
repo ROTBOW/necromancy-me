@@ -25,4 +25,17 @@
         cursor: pointer;
         color: red;
     }
+    
+    &.active {
+        font-size: 26px;
+        color: red;
+        transform: rotateZ(180deg);
+        
+        &:hover {
+            font-size: 24px;
+            transform: rotateZ(-180deg);
+            color: black;
+
+        }
+    }
 }

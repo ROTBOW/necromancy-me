@@ -4,8 +4,6 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import { getUnlockAt, setUnlockAt, sleep } from "../../utils";
 
 
-// let buildSkel = 0;
-
 const Graves = (props) => {
     const [skeletons, setSkeletons] = useState(Number(localStorage.getItem('skeletons')));
     const [buildSkel, setBuildSkel] = useState(0);
