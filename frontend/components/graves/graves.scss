@@ -1,9 +1,11 @@
+@import "../../styles/mixins.scss";
+
 .graves {
 
     button {
-        border: 2px solid lightgray;
+        @include buttons;
         margin-bottom: 0.3rem;
-
+        
         i {
             font-style: italic;
         }

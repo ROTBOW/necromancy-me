@@ -11,6 +11,9 @@ const playerData = [
     'wood',
 ];
 
+// Unlocks are as follows:
+// Skeletons: 0,  forest: 1
+
 const startData = {
     'unlocks': '00',
     'skeletons': '0',

@@ -11,3 +11,18 @@
     -webkit-box-shadow: $shadows;
     -moz-box-shadow: $shadows;
 }
+
+.setting-gears {
+    position: absolute;
+    font-size: 24px;
+    top: 565px;
+    right: 15px;
+    
+    transition: all 500ms;
+    &:hover {
+        font-size: 26px;
+        transform: rotateZ(180deg);
+        cursor: pointer;
+        color: red;
+    }
+}

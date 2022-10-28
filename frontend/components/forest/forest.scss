@@ -1,0 +1,9 @@
+@import '../../styles/mixins.scss';
+
+.forest {
+
+    button {
+        @include buttons;
+        margin-right: 0.4rem;
+    }
+}

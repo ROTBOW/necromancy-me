@@ -1,0 +1,12 @@
+
+@mixin buttons {
+    border: 2px solid lightgray;
+    border-radius: 5px;
+
+    transition: all 500ms;
+    &:hover:not(:disabled) {
+        color: red;
+        border-color: black;
+
+    }
+}

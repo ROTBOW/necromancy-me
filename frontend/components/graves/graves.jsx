@@ -17,17 +17,16 @@ const Graves = (props) => {
 
         (async () => {
             let sc  = 0
-            while (sc <= 100) {
-                await sleep(50)
+            while (sc < 100) {
+                await sleep(75)
                 setBuildSkel(skel => skel + 1)
                 sc++;
             }
 
-            let newAmount = skeletons + 1;
+            let newAmount = skeletons + (1 * Number(localStorage.getItem('skeletonRate')));
             localStorage.setItem('skeletons', String(newAmount))
             setSkeletons(newAmount);
             if (getUnlockAt(1) != '1' && newAmount > 9) {
-                // alert('you\'ve unlocked the forest')
                 setUnlockAt(1, '2')
                 props.pingMenu();
             }
