@@ -16,19 +16,20 @@ const Graves = (props) => {
         (async () => {
             let sc  = 0
             while (sc < 100) {
-                await sleep(75)
+                await sleep(50)
                 setBuildSkel(skel => skel + 1)
                 sc++;
             }
+            await sleep(250);
 
             let newAmount = skeletons + (1 * Number(localStorage.getItem('skeletonRate')));
-            localStorage.setItem('skeletons', String(newAmount))
+            localStorage.setItem('skeletons', String(newAmount));
             setSkeletons(newAmount);
             if (getUnlockAt(1) != '1' && newAmount > 9) {
-                setUnlockAt(1, '2')
+                setUnlockAt(1, '2');
                 props.pingMenu();
-            }
-            setBuildSkel(0)
+            };
+            setBuildSkel(0);
             setBuilding(false);
         })();
     }
@@ -39,10 +40,10 @@ const Graves = (props) => {
             <p>You have {skeletons} <i>Skeletons</i></p>
 
             <button onClick={raiseSkeleton} disabled={building}>Raise <i>Skeleton</i></button>
-            <ProgressBar now={buildSkel} label={`${buildSkel}%`}/>
+            <ProgressBar now={buildSkel} label={`Raising Skeleton...`}/>
         </div>
-    )
-}
+    );
+};
 
 
 export default Graves;

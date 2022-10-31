@@ -4,12 +4,12 @@ import { getUnlockAt, setUnlockAt } from "../../utils";
 
 const Splash = (props) => {
 
-    useEffect(() => {
-        if (getUnlockAt(0) === '0') {
-            setUnlockAt(0, '2');
-            props.pingMenu();
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (getUnlockAt(0) === '0') {
+    //         setUnlockAt(0, '2');
+    //         props.pingMenu();
+    //     }
+    // }, []);
     
     return (
         <div className="tab-container splash">
