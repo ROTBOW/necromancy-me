@@ -11,7 +11,7 @@ const Forest = () => {
 
     const gatherWood = () => {
         let wood = Number(localStorage.getItem('wood'));
-        localStorage.setItem('wood', wood + 1);
+        localStorage.setItem('wood', wood + (1 * Number(localStorage.getItem('woodRate'))));
     };
 
     const addSkeleton = amount => e => {
@@ -31,7 +31,7 @@ const Forest = () => {
 
             if (gt > 0) {
                 gt--;
-                if (gp + 20 > 100) {
+                if (gp + 20 === 100) {
                     gatherWood();
                     gp = 0;
                 } else {
@@ -61,7 +61,10 @@ const Forest = () => {
 
             <p>You have {localStorage.getItem('wood')} pieces of wood.</p>
 
-            <p>You have enough <i>Skeletons</i> here to work for {gatherTicks} ticks.</p>
+            <p>You have enough <i>Skeletons</i> here to work for {gatherTicks} ticks.
+                <br/>
+                Right now your <i>Skeletons</i> gather {`${localStorage.getItem('woodRate')}`} per cycle
+            </p>
             <ProgressBar now={gatherProg} label="Gathering Wood..."/>
             <button onClick={addSkeleton(1)}>Add One <i>Skeleton</i></button>
             <button onClick={addSkeleton(Math.floor(Number(localStorage.getItem('skeletons')) / 2))}>Add half ({Math.floor(localStorage.getItem('skeletons') / 2)}) of your <i>Skeletons</i></button>

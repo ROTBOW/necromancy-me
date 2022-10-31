@@ -37,7 +37,10 @@ const Graves = (props) => {
     return (
         <div className="tab-container graves">
             <p>This is the graveyard, the only thing you can raise here are <i>Skeletons</i>. Dumb, but they have their uses.</p>
-            <p>You have {skeletons} <i>Skeletons</i></p>
+            <p>You have {skeletons} <i>Skeletons</i>
+                <br/>
+                <p>Right now, you raise {`${localStorage.getItem('skeletonRate')}`} <i>Skeleton(s)</i> per cast</p>
+            </p>
 
             <button onClick={raiseSkeleton} disabled={building}>Raise <i>Skeleton</i></button>
             <ProgressBar now={buildSkel} label={`Raising Skeleton...`}/>

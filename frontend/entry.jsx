@@ -3,17 +3,7 @@ import Root from './components/root';
 import './styles/index.scss';
 import React from 'react';
 
-
-// const playerData = [
-//     'unlocks',
-//     'skeletons',
-//     'skeletonRate',
-//     'wood',
-//     'woodGatherTicks',
-//     'woodGatherProg'
-// ];
-
-// Unlocks are as follows:
+// Unlocks are as follows: ID: Idx
 // Skeletons: 0,  forest: 1
 
 const startData = {
@@ -23,6 +13,7 @@ const startData = {
     'wood': '0',
     'woodGatherTicks': '0',
     'woodGatherProg': '0',
+    'woodRate': '1',
 }
 
 const playerData = Object.keys(startData);
